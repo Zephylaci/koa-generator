@@ -3,5 +3,4 @@ const main = {
 		ctx.body = 'hello'
 	}
 }
-
-module.exports = main;
+export default main;

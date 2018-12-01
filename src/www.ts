@@ -1,24 +1,17 @@
 
-var app = require('./koa-server.js');
-var debug = require('debug')('demo:server');
-var http = require('http');
+import app from './koa-server'
+import * as http from "http"
+import {port} from '../config/koa-config.js'
 
-//引入配置文件
-var env = require('../config/koa-config.js');
-// 将端口号设置为配置文件的端口号，默认值为3000,dev,test默认端口3001
-var port = env.port || '3000';
+const debug = require('debug')('demo:server')
+
 // 打印输出端口号
-console.log('listen prot: ' + env.port);
-
-
-var server = http.createServer(app.callback());
-
+console.log('listen prot: ' + port);
+const server = http.createServer(app.callback());
 
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-
 
 function onError(error) {
   if (error.syscall !== 'listen') {
@@ -50,4 +43,7 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-module.exports=server;
+export default server
+export {
+  server,
+}
