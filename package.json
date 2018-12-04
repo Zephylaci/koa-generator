@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "start": "npm build && npm run server",
-    "build:": "rm -rf built/*&&tsc",
+    "start": "npm run build && npm run server",
+    "build": "rm -rf built/*&&tsc",
     "server": "node built/app.js",
     "dev": "nodemon ",
     "test":"jest"
