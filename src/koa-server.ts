@@ -1,17 +1,16 @@
 import * as Koa from 'koa';
-import * as json from'koa-json'
-import * as onerror from'koa-onerror'
-import * as bodyparser from'koa-bodyparser'
-import * as KoaRouterBase from'koa-router'
-import * as staticServer from'koa-static-server'
-import * as logger from'koa-logger'
-import * as path from 'path'
-import  apiRouter from'./router/api-routers'
+import * as bodyparser from 'koa-bodyparser';
+import * as json from 'koa-json';
+import * as onerror from 'koa-onerror';
+import * as KoaRouterBase from 'koa-router';
+import * as staticServer from 'koa-static-server';
+import * as path from 'path';
+import apiRouter from './router/api-routers';
+import {loggerRes,loggerErr} from './utils/logger'
 
 const app = new Koa();
 const KoaRouter = KoaRouterBase();
 
-//const apiRouter = require('./router/api-routers');
 onerror(app)
 
 // middlewares
@@ -19,12 +18,12 @@ app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
 app.use(json())
-app.use(logger())
+
 app.use(async (ctx, next) => {
   const start = new Date().getTime();
   await next();
-  const ms:number = new Date().getTime() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+  const ms:number = new Date().getTime() - start;
+  loggerRes.info(`${ctx.method} ${ctx.url} - ${ms}ms - ${ctx.status}`);
 })
 
 
@@ -37,7 +36,7 @@ app.use(staticServer({
 })); 
 // error-handling
 app.on('error', (err, ctx) => {
-  console.error('server error', err, ctx)
+  loggerErr.error('main Error: ', err, ctx)
 });
 export default app;
 

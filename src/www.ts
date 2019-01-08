@@ -1,12 +1,11 @@
 
 import app from './koa-server'
 import * as http from "http"
-import {port} from '../config/koa-config.js'
-
+import {port} from '../config/index.js'
+import {loggerRes} from './utils/logger'
 const debug = require('debug')('demo:server')
-
 // 打印输出端口号
-console.log('listen prot: ' + port);
+loggerRes.info('listen prot: ' + port);
 const server = http.createServer(app.callback());
 
 server.listen(port);
@@ -23,11 +22,11 @@ function onError(error) {
     : 'Port ' + port;
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    loggerRes.error(bind + ' requires elevated privileges');
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    loggerRes.error(bind + ' is already in use');
       process.exit(1);
       break;
     default:
