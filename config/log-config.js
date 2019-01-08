@@ -11,7 +11,7 @@ const baseConfig = {
             type: 'console',
         },
         console:{
-            type:'console'
+            type:'console',
         },
         http: {//请求日志
             type: 'dateFile',
@@ -62,19 +62,19 @@ const levelState= {
             http: {//请求日志
                 type: 'dateFile',
                 filename: baseLogPath+'/response_',
-                pattern: 'req-yyyy-MM-dd.log',
+                pattern: 'yyyy-MM-dd.log',
                 alwaysIncludePattern: true
             },
             logger:{//主日志
                 type: 'dateFile',
                 filename: baseLogPath+'/logger_',
-                pattern: 'req-yyyy-MM-dd.log',
+                pattern: 'yyyy-MM-dd.log',
                 alwaysIncludePattern: true
             },
             error: {//错误日志
                 type: 'dateFile',
                 filename: baseLogPath+'/error_',
-                pattern: 'req-yyyy-MM-dd.log',
+                pattern: 'yyyy-MM-dd.log',
                 alwaysIncludePattern: true
             }
         });
