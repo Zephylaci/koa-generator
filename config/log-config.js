@@ -53,7 +53,7 @@ const levelState= {
     },
     'watching':()=>{
         let outConfig = Object.assign(baseConfig);
-        delete outConfig.categories.http;
+        outConfig.categories.http.appenders=['http'];
         return outConfig;
     },
     'running':()=>{
@@ -81,7 +81,7 @@ const levelState= {
         outConfig.categories={
             default: { appenders: ['logger'], level: 'debug' },
             http:{ appenders: ['http'], level: 'debug' },
-            error: { appenders: ['error'], level: 'error' }
+            error: { appenders: ['error'], level: 'warn' }
         }
         return outConfig
     }

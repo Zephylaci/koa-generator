@@ -7,6 +7,7 @@ import * as staticServer from 'koa-static-server';
 import * as path from 'path';
 import apiRouter from './router/api-routers';
 import {loggerRes,loggerErr} from './utils/logger'
+import generalResult from './middleware/generalResult';
 
 const app = new Koa();
 const KoaRouter = KoaRouterBase();
@@ -20,6 +21,7 @@ app.use(bodyparser({
 app.use(json())
 
 app.use(async (ctx, next) => {
+  generalResult(ctx);
   const start = new Date().getTime();
   await next();
   const ms:number = new Date().getTime() - start;
