@@ -8,13 +8,16 @@
  * log.level = watching 输出日志在控制台将必要日志写入日志文件
  * log.level = running 只将必要的日志写入日志文件
  */
-var config ={
+var config = {
     port: 8082,
-    log:{
-        basePath:'../logs',
-        level:'debug' // debug watching  running  
+    logConfig: {
+        basePath: '../logs',
+        level: 'debug' // debug watching  running  
     }
 }
+export let {
+    logConfig,
+    port
+} = config;
 
-
-module.exports = config
+export default config;

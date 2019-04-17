@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "start": "npm run build && npm run server",
-    "build": "rm -rf built/*&&tsc",
+    "build": "rm -rf built/dist/&&tsc",
     "server": "node built/app.js",
     "dev": "nodemon ",
     "test": "jest"

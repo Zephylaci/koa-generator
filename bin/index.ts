@@ -1,8 +1,8 @@
 
-import app from './koa-server'
+import app from '../lib/koa-server'
 import * as http from "http"
-import {port} from '../config/index.js'
-import {loggerRes} from './utils/logger'
+import {port} from '../config/'
+import {loggerRes} from '../lib/utils/logger'
 const debug = require('debug')('demo:server')
 // 打印输出端口号
 loggerRes.info('listen prot: ' + port);
