@@ -1,9 +1,12 @@
-import { resultBean } from "../utils/bean/resultBean";
+import { resultBean } from "../type/bean/resultBean";
 
-export function generalResult (ctx){
-    ctx.body = new resultBean({
-        retCode:1000,
-        text:'连接成功'
-    });
+
+export function generalResult(ctx) {
+    if (ctx.request.method === 'POST') {
+        ctx.body = new resultBean({
+            code: 100,
+            text: '连接成功'
+        });
+    }
 }
 export default generalResult

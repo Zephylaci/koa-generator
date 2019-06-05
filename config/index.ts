@@ -8,16 +8,31 @@
  * log.level = watching 输出日志在控制台将必要日志写入日志文件
  * log.level = running 只将必要的日志写入日志文件
  */
-var config = {
-    port: 8082,
+const config = {
+    host: '0.0.0.0',
+    port: 8083,
     logConfig: {
         basePath: '../logs',
         level: 'debug' // debug watching  running  
     }
 }
+
+
 export let {
     logConfig,
+    host,
     port
 } = config;
 
-export default config;
+/**
+ *  数据库配置
+ */
+export const mysqlConfig={
+    host:'192.168.10.108',
+    port:4000,
+    user:'root',
+    password:'baldr@201096',
+    database:'blogAdmin',
+    connectionLimit: 30,
+    acquireTimeout:180000
+}

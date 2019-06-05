@@ -1,4 +1,4 @@
-import hello from '../src/api/hello';
+import hello from '../lib/api/hello';
 
 test('hello test', () => {
     let ctx ={};

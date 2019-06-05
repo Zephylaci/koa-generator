@@ -1,14 +1,14 @@
 
 import app from '../lib/koa-server'
 import * as http from "http"
-import {port} from '../config/'
-import {loggerRes} from '../lib/utils/logger'
+import { port, host } from '../config/'
+import { loggerRes, logger } from '../lib/utils/logger'
 const debug = require('debug')('demo:server')
 // 打印输出端口号
-loggerRes.info('listen prot: ' + port);
+logger.info(`listen: ${host} ${port}`);
 const server = http.createServer(app.callback());
 
-server.listen(port);
+server.listen(port,host);
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -22,11 +22,11 @@ function onError(error) {
     : 'Port ' + port;
   switch (error.code) {
     case 'EACCES':
-    loggerRes.error(bind + ' requires elevated privileges');
+      loggerRes.error(bind + ' requires elevated privileges');
       process.exit(1);
       break;
     case 'EADDRINUSE':
-    loggerRes.error(bind + ' is already in use');
+      loggerRes.error(bind + ' is already in use');
       process.exit(1);
       break;
     default:
@@ -40,9 +40,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-}
-
-export default server
-export {
-  server,
 }
