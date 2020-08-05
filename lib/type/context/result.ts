@@ -4,14 +4,14 @@
  *  1000 默认返回值
  *  2000 成功
  */
-export class resultBean {
-    retCode: number;
-    result: any;
+export class resultContext {
+    code: number;
+    contents: any;
     text: string;
-    constructor({ retCode = 1000, text = "连接成功" }) {
-        this.retCode = retCode;
+    constructor({ code = 100, text = "连接成功" }) {
+        this.code = code;
 
-        this.result = {};
+        this.contents = {};
 
         this.text = text;
     }
@@ -24,13 +24,17 @@ export class resultBean {
  *  1 请求成功
  * -1 请求失败
  *  @param{any} result
- *  通常为执行结果，即使只有一值也是一个数组
+ *  通常为执行结果
+ *  @param{any} errMsg
+ *  失败时为 错误信息
  */
-export class queryBean {
+export class queryContext {
     retState: number;
     result: any;
+    errMsg: any;
     constructor() {
         this.retState = 0;
         this.result = [];
+        this.errMsg = null;
     }
 }

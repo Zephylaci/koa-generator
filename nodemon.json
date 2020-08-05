@@ -1,6 +1,6 @@
 {
-    "watch": ["src","bin","config"], 
-    "ext": "ts,js", 
-    "ignore": [], 
-    "exec": "ts-node ./bin" 
-  }
+    "watch": ["lib", "bin", "config"],
+    "ext": "ts,js",
+    "ignore": [],
+    "exec": "ts-node ./bin"
+}

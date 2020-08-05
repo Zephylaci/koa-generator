@@ -1,9 +1,14 @@
-import { resultBean } from "../utils/bean/resultBean";
+import { resultContext } from "../type/context/result";
 
 export function generalResult(ctx) {
-    ctx.body = new resultBean({
-        retCode: 1000,
-        text: "连接成功",
-    });
+    if (ctx.request.method === "POST") {
+        ctx.body = new resultContext({
+            code: 100,
+            text: "连接成功",
+        });
+    }
+    if (ctx.request.method === "OPTION") {
+        ctx.response.status = 200;
+    }
 }
 export default generalResult;

@@ -1,8 +1,10 @@
 // 路由设置
-import * as KoaRouterBase from "koa-router";
-import hello from "../api/hello";
+import * as router from "koa-router";
+import hello from "../api/helloControl";
 
-const KoaRouter = KoaRouterBase();
-KoaRouter.get("/hello", hello.contrl); //getNhData接受post调用
+const apiRouter = new router();
 
-export default KoaRouter;
+apiRouter.prefix("/api");
+apiRouter.use(hello.routes());
+
+export default apiRouter;

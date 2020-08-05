@@ -2,16 +2,12 @@ import * as Koa from "koa";
 import * as bodyparser from "koa-bodyparser";
 import * as json from "koa-json";
 import * as onerror from "koa-onerror";
-import * as KoaRouterBase from "koa-router";
 import * as staticServer from "koa-static-server";
 import * as path from "path";
 import apiRouter from "./router/api-routers";
 import { loggerRes, loggerErr } from "./utils/logger";
 import generalResult from "./middleware/generalResult";
-
 const app = new Koa();
-const KoaRouter = KoaRouterBase();
-
 onerror(app);
 
 // middlewares
@@ -30,8 +26,7 @@ app.use(async (ctx, next) => {
     loggerRes.info(`${ctx.method} ${ctx.url} - ${ms}ms - ${ctx.status}`);
 });
 
-KoaRouter.use("/api", apiRouter.routes());
-app.use(KoaRouter.routes()); // 将api路由规则挂载到Koa上。
+app.use(apiRouter.routes());
 // 读取编译后的静态文件
 app.use(
     staticServer({
