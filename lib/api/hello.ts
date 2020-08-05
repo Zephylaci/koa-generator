@@ -1,8 +1,7 @@
 const main = {
-	contrl:(ctx)=>{
-
-		ctx.body = 'hello'
-		return ctx
-	}
-}
+    contrl: (ctx) => {
+        ctx.body = "hello";
+        return ctx;
+    },
+};
 export default main;
