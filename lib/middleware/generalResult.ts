@@ -1,4 +1,4 @@
-import { resultContext } from "../type/context/result";
+import { resultContext } from "../type/context/result.js";
 
 export function generalResult(ctx) {
     if (ctx.request.method === "POST") {

@@ -1,14 +1,15 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es2017",
+        "esModuleInterop": true,
+        "module": "ESNext",
+        "target": "ESNext",
         "allowJs": true,
         //允许值为隐式的any
         //"noImplicitAny": false,
-        "moduleResolution": "node",
+        "moduleResolution": "NodeNext",
         //"sourceMap": true,
-        "outDir": "./built/dist/",  // TS文件编译后会放入到此文件夹内
-       // "baseUrl": ".",
+        "outDir": "./built/dist/" // TS文件编译后会放入到此文件夹内
+        // "baseUrl": ".",
         // "paths": {
         //     "*": [
         //         "node_modules/*",
@@ -16,10 +17,10 @@
         //     ]
         // }
     },
-    "include": [
-    	"./bin/**/*",
-        "./src/**/*"
-    ]
+    "include": ["./bin/**/*", "./src/**/*"],
+    "ts-node": {
+        "esm": true
+    }
     // "exclude": [
     //     "node_modules",
     // ]

@@ -2,5 +2,5 @@
     "watch": ["lib", "bin", "config"],
     "ext": "ts,js",
     "ignore": [],
-    "exec": "ts-node ./bin"
+    "exec": "ts-node -r tsconfig-paths/register ./bin/index.ts"
 }
