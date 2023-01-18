@@ -1,7 +1,9 @@
 // 路由设置
-var KoaRouter = require('koa-router')();
-var hello = require('../api/hello.js');
+import Router from 'koa-router';
+import hello from '../api/hello.js';
+
+const KoaRouter = Router();
 
 KoaRouter.get('/hello', hello.control);
 
-module.exports = KoaRouter;
+export default KoaRouter;

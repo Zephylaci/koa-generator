@@ -4,4 +4,4 @@ const main = {
     }
 };
 
-module.exports = main;
+export default main;

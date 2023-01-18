@@ -1,24 +1,26 @@
 {
-  "name": "koa-generator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
-  "author": "zephyru",
-  "license": "ISC",
-  "dependencies": {
-    "koa": "^2.14.1",
-    "koa-bodyparser": "^4.3.0",
-    "koa-json": "^2.0.2",
-    "koa-logger": "^3.2.1",
-    "koa-onerror": "^4.2.0",
-    "koa-router": "^12.0.0",
-    "koa-static-server": "^1.5.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
-  }
+    "name": "koa-generator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0",
+    "type": "module",
+    "engines": "",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "author": "zephyru",
+    "license": "ISC",
+    "dependencies": {
+        "koa": "^2.14.1",
+        "koa-bodyparser": "^4.3.0",
+        "koa-json": "^2.0.2",
+        "koa-onerror": "^4.2.0",
+        "koa-router": "^12.0.0",
+        "koa-static-server": "^1.5.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
 }

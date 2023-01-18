@@ -1,1 +1,1 @@
-const server = require('./src/www.js');
+import server from './src/www.js';
