@@ -8,8 +8,8 @@
         //"noImplicitAny": false,
         "moduleResolution": "NodeNext",
         //"sourceMap": true,
-        "outDir": "./built/dist/" // TS文件编译后会放入到此文件夹内
-        // "baseUrl": ".",
+        "outDir": "./dist/", // TS文件编译后会放入到此文件夹内
+        "baseUrl": "."
         // "paths": {
         //     "*": [
         //         "node_modules/*",
@@ -17,7 +17,7 @@
         //     ]
         // }
     },
-    "include": ["./bin/**/*", "./src/**/*"],
+    "include": ["./bin/**/*", "./script/**/*"],
     "ts-node": {
         "esm": true
     }

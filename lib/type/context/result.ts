@@ -1,18 +1,24 @@
 /**
  *  http 响应时的容器
  *  @param{number} retCode
- *  1000 默认返回值
- *  2000 成功
+ *  100 默认返回值
+ *  200 成功
  */
-export class resultContext {
+ export class resultBean {
     code: number;
     contents: any;
     text: string;
-    constructor({ code = 100, text = "连接成功" }) {
+    constructor({
+        code = 100,
+        text = '连接成功',
+        contents = {}
+    }: {
+        code: number;
+        text: string;
+        contents?: any;
+    }) {
         this.code = code;
-
-        this.contents = {};
-
+        this.contents = contents;
         this.text = text;
     }
 }
@@ -28,7 +34,7 @@ export class resultContext {
  *  @param{any} errMsg
  *  失败时为 错误信息
  */
-export class queryContext {
+export class queryBean {
     retState: number;
     result: any;
     errMsg: any;

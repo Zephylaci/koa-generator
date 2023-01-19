@@ -33,11 +33,18 @@ const baseConfig = {
             filename: baseLogPath + '/error_',
             pattern: 'yyyy-MM-dd.log',
             alwaysIncludePattern: true
+        },
+        sql: {
+            type: 'dateFile',
+            filename: baseLogPath + '/sql_',
+            pattern: 'yyyy-MM-dd.log',
+            alwaysIncludePattern: true
         }
     },
     categories: {
         default: { appenders: ['console', 'logger'], level: 'debug' },
         http: { appenders: ['console', 'http'], level: 'debug' },
+        sql: { appenders: ['console', 'sql'], level: 'debug' },
         stdout: { appenders: ['stdout'], level: 'debug' },
         error: { appenders: ['console', 'error'], level: 'error' }
     }
@@ -55,6 +62,7 @@ const levelState = {
         outConfig.categories = {
             default: { appenders: ['logger'], level: 'debug' },
             http: { appenders: ['http'], level: 'debug' },
+            sql: { appenders: ['sql'], level: 'debug' },
             stdout: { appenders: ['stdout'], level: 'debug' },
             error: { appenders: ['error'], level: 'error' }
         };

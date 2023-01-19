@@ -1,4 +1,4 @@
-import { dbInstance } from '../index.js';
+import dbInstance from '../device.js';
 import { DataTypes } from 'sequelize';
 import { Model, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize';
 

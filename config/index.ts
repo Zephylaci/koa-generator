@@ -9,21 +9,26 @@
  * log.level = running 只将必要的日志写入日志文件
  */
 const Base = {
-    host: "0.0.0.0",
+    host: '0.0.0.0',
     port: 8082,
-    dbAddress: "./db/production.db",
+    dbAddress: '../db/production.db',
+    dbLog: true,
+    dbReBuild: false,
     logConfig: {
-        basePath: "../logs",
-        level: "watching", // debug watching  running
-    },
+        basePath: '../logs',
+        level: 'watching' // debug watching  running
+    }
 };
-export const viewDir = "../view";
+export const viewDir = '../view';
 
 //开发模式的配置
-if (process.env.NODE_ENV === "development") {
-    Base.logConfig.level = "debug";
-    Base.dbAddress.replace("production", "development");
+if (process.env.NODE_ENV === 'development') {
+    Base.logConfig.level = 'debug';
+    Base.dbAddress = './db/development.db';
+    Base.dbLog = true;
+    // 重新建库 只推荐在开发时需要调试建表时使用
+    Base.dbReBuild = false;
 }
 
-export const { port, host, logConfig, dbAddress } = Base;
+export const { port, host, logConfig, dbAddress, dbLog, dbReBuild } = Base;
 export default Base;

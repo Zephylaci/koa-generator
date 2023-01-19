@@ -12,8 +12,8 @@
     "type": "module",
     "scripts": {
         "start": "npm run build && npm run server",
-        "build": "rm -rf built/dist/&&tsc",
-        "server": "node built/dist/bin/index.js",
+        "build": "rm -rf dist/&&tsc",
+        "server": "node dist/bin/index.js",
         "dev": "cross-env NODE_ENV=development nodemon ",
         "test": "jest"
     },
