@@ -7,7 +7,7 @@ import { loggerRes, loggerErr } from './utils/logger.js';
 import generalResult from './middleware/generalResult.js';
 import apiRouter from './api/index.js';
 import path from 'path';
-import { setKeyValue } from './dao/interface/Hello.js';
+
 
 const app = new Koa();
 onerror(app);

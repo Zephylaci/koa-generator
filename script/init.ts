@@ -5,13 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const dirPath = dirname(fileURLToPath(import.meta.url));
 
-import { dbInstance } from '../lib/dao/index.js';
 const name = 'Hello';
-
-await dbInstance.sync({ force: true });
-
-const Hello = dbInstance.model('Hello');
-await Hello.create({ key: 'Hello', value: 'World' });
 
 function outExecSync(command, options = {}) {
     return execSync(command, {

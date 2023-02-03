@@ -3,7 +3,6 @@ import http from 'http';
 import { port, host } from '../config/index.js';
 import { loggerRes, logger } from '../lib/utils/logger.js';
 import Debug from 'debug';
-import '../lib/dao/index.js';
 
 const debug = Debug('demo:server');
 
